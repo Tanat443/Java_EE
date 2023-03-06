@@ -24,6 +24,7 @@ public class UpdateServlet extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
 
         Tasks task = new Tasks();
+        task.setId(id);
         task.setName(name);
         task.setDescription(description);
         task.setDeadlineDate(deadlineDate);

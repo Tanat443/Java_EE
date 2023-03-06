@@ -1,6 +1,5 @@
 <%@ page import="db.DbManager" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="models.Footballer" %>
 <%@ page import="models.Tasks" %><%--
   Created by IntelliJ IDEA.
   User: w2

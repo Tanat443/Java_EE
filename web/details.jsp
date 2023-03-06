@@ -20,7 +20,7 @@
                 Tasks task = (Tasks)request.getAttribute("task");
                 if(task!=null){
                     %>
-            <form action="/Delete?id=<%=task.getId()%>" method="post">
+            <form action="/Update?id=<%=task.getId()%>" method="post">
                 <div>
 
                     <label class="col-form-label">Наименование:</label>
@@ -44,9 +44,9 @@
                     </select>
                 </div>
                 <div class="mt-3">
-                    <button type="button" class="btn btn-success">Cохранить</button>
-<%--                    <a href="/Update?id=<%=task.getId()%>&name=<%=task.getName()%>&description=<%=task.getDescription()%>&deadlineDate=<%=task.getName()%>"  class="btn btn-danger">Удалить</a>--%>
-                    <button type="submit" class="btn btn-danger">Удалить</button>
+                    <button type="submit" class="btn btn-success">Cохранить</button>
+                    <a href="/Delete?id=<%=task.getId()%>" class="btn btn-warning" > Удалить</a>
+<%--                    <button type="button" class="btn btn-danger">Удалить</button>--%>
                 </div>
             </form>
             <%

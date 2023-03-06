@@ -27,6 +27,14 @@ public class DbManager {
             }
         }
     }
+    public static void deleteTask(Long id){
+        for (Tasks task :tasks){
+            if(task.getId()==id){
+                tasks.remove(task);
+                break;
+            }
+        }
+    }
     public static ArrayList<Tasks> getAllTasks(){
         return tasks;
     }
@@ -39,11 +47,5 @@ public class DbManager {
         return null;
     }
 
-    public static void deleteTask(Long id){
-        for (Tasks task :tasks){
-            if(task.getId()==id){
-                tasks.remove(task);
-            }
-        }
-    }
+
 }
