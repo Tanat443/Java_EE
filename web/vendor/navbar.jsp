@@ -1,17 +1,16 @@
-<nav class="navbar navbar-expand-lg " style="background-color: #000d4b;"data-bs-theme="dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="/">TASK MANAGER</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">All tasks</a>
-        </li>
 
-      </ul>
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom  ">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4"><b>BITLAB SHOP</b></span>
+    </a>
 
-    </div>
-  </div>
-</nav>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#" class="nav-link link-dark ">Top Sales</a></li>
+      <li class="nav-item"><a href="#" class="nav-link link-dark">New Sales</a></li>
+      <li class="nav-item"><a href="#" class="nav-link link-dark">By Category</a></li>
+      <li class="nav-item"><a href="/SignIn" class="nav-link link-dark">Sign in</a></li>
+    </ul>
+  </header>
+
+

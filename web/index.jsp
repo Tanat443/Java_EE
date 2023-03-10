@@ -1,6 +1,7 @@
 <%@ page import="db.DbManager" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="models.Tasks" %><%--
+<%@ page import="models.Tasks" %>
+<%@ page import="models.Item" %><%--
   Created by IntelliJ IDEA.
   User: w2
   Date: 04.03.2023
@@ -13,93 +14,41 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Task Manager</title>
+    <title>Bitlab Shop</title>
     <%@include file="vendor/head.jsp"%>
 </head>
 <body>
-<%@include file="vendor/navbar.jsp"%>
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-sm-12">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                + Добавить задание
-            </button>
-            <table class="table table-hover mt-3">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Наименование</th>
-                        <th>Крайний срок</th>
-                        <th>Выполнено</th>
-                        <th>Детали</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                <% ArrayList<Tasks> tasks = (ArrayList<Tasks>) request.getAttribute("tasks");
-                    for (Tasks task: tasks ) { %>
-                <tr>
-                    <td><%=task.getId()%></td>
-                    <td><%=task.getName()%></td>
-                    <td><%=task.getDeadlineDate()%></td>
-                    <% if(task.isStatus()==true){ %>
-                    <td>Да</td>
-                    <% }else { %>
-                    <td>Нет</td>
-                    <%} %>
-
-                    <td>
-
-                        <a href="/Details?id=<%=task.getId()%>" class="btn btn-primary">Детали</a>
-                    </td>
-                </tr>
-                <% }%>
-
-                </tbody>
-            </table>
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Новое задание</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/AddTask" method="post">
-                                <div>
-                                    <label class="col-form-label">Наименование:</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Наименование...">
-                                </div>
-                                <div>
-                                    <label class="col-form-label">Описание:</label>
-                                    <textarea class="form-control" name="description" placeholder="Описание..."></textarea>
-                                </div>
-                                <div>
-                                    <label class="col-form-label">Крайний срок:</label>
-                                    <input type="date" class="form-control" name="deadlineDate" pattern="\d{2}\.\d{2}\.\d{4}">
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                    <button type="submit" class="btn btn-primary">Добавить</button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
+<div class="container" style="max-width: 960px">
+    <%@include file="vendor/navbar.jsp"%>
+    <div class="px-4 py-1 my-4 text-center">
+        <h3 class="display-6 fw-bold">Welcome to BITLAB SHOP</h3>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-2">Electronic devices with high quality and service</p>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-md-center">
+        <% ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
+        for ( Item item : items){
+        %><div class="col px-4 ">
+        <div class="card mb-4 rounded-3 shadow-lg">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal "><%=item.getName()%></h5>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title text-success">$<%=item.getPrice()%></h1>
+                <ul class="list-unstyled mt-3 mb-4 ">
+                    <li><%=item.getDescription()%></li>
+<%--                    <li>10 users included</li>--%>
+<%--                    <li>2 GB of storage</li>--%>
+<%--                    <li>Email support</li>--%>
+<%--                    <li>Help center access</li>--%>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-success">Buy now</button>
             </div>
         </div>
     </div>
-
-    <table>
-        <tbody>
-
-        </tbody>
-    </table>
+        <%}%>
+    </div>
 </div>
 </body>
 <script>
